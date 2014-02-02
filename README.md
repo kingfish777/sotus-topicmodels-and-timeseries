@@ -2,7 +2,7 @@ sotus-topicmodels-and-timeseries
 ================================
 
 topicmodel sand timeseries of SOTUSes
-PURPOSE: investigate topic models in context of a collection of State of the Union speeches (SOTUS) by way of tracking the evolution of the United States from an agrarian colonial backwater through various stages of Empire to declining financialized post-industrial global corporate/state and hegemon.
+PURPOSE: investigate topic models in context of a collection of State of the Union speeches (SOTUS) by way of tracking the evolution of the United States from an agrarian colonial backwater through various stages of Empire and on, finally, to financialized post-industrial corporate/police state and meteorically declining global hegemon.
 
 
   * UCSB_scraper.R scrapes all presidential material from UCSB website on US presidents: http://www.presidency.ucsb.edu/
