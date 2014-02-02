@@ -8,12 +8,12 @@
 #
 # Author: Scott Alexander Malec
 # Email: scott [dot] malec [at] gmail [dot] com
-# Date: 1/23/2014
+# Date: 2/1/2014
 #
 # TITLE: scraper.R
 #
-# Purpose: R tools to scrape Federal Reserve text collection
-#
+# Purpose: R tools to scrape UCSB Presidential speech text collection
+#          http://www.presidency.ucsb.edu/
 #########################################################################
 
 
