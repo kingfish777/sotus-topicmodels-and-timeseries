@@ -2,7 +2,7 @@ sotus-topicmodels-and-timeseries
 ================================
 
 topicmodel sand timeseries of SOTUSes
-  UCSB_scraper.R                scrapes all presidential material from UCSB webiste
+  UCSB_scraper.R                scrapes all presidential material from UCSB website on US presidents: http://www.presidency.ucsb.edu/
  	KNN_SOTUS.R 	                investigate which texts most closely resemble other texts using K-Nearest Neighbor
  	SOTUS_Hclust.R                performs hierarchical clustering of SOTUS addresses (similarity metric)
 	SOTUS_topicmodels_all.R 	    creates topic models of all speeches
