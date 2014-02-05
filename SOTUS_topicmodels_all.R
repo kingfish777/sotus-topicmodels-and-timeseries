@@ -21,37 +21,6 @@
 
 
 
-library("tm")
-library("rJava")
-library("RWeka")
-library("topicmodels")
-#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/postwar_era")
-#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/neoliberal_era")
-setwd("C:/Users/Scott.Malec/Desktop/SOTUS/neoliberal_era/neo_D")
-#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/sixties/")
-#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/new_deal/")
-#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/jacksonian_democracy/")
-#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/early_republic/")
-#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/progressive_era/")
-#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/reconstruction/")
-
-setwd("/home/hinckley/Public/corpora/SOTUS/")
-#setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/")
-setwd("/home/hinckley/Public/corpora/SOTUS/plutocrats/")
-
-setwd("/home/hinckley/Public/corpora/SOTUS/better_angels/")
-#setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/neo_D/")
-#setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/neo_R/")
-#setwd("/home/hinckley/Public/corpora/SOTUS/newdeal_postwar/")
-#setwd("/home/hinckley/Public/corpora/SOTUS/newdeal_postwar/")
-#setwd("/home/hinckley/Public/corpora/SOTUS/progressive_newdeal/")
-#setwd("/home/hinckley/Public/corpora/SOTUS/early_republic/")
-#setwd("/home/hinckley/Public/corpora/SOTUS/reconstruction/")
-#setwd("/home/hinckley/Public/corpora/SOTUS/roaring_twenties/")
-
-
-
-
 
 #wd = homePath
 #setwd(wd)
@@ -61,12 +30,14 @@ corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
 corpus <- tm_map(corpus, removePunctuation)
 #corpus <- tm_map(corpus, removeNumbers)
 corpus <- tm_map(corpus, tolower)
-corpus <- tm_map(corpus, removeWords, c(stopwords("english"), "mr speaker", "fy", "30th", "1981", "american people", "past", "1982", "vice", "president", "state union", "year", "years", "united states", "my administration", "fellow citizens", "god bless", "must", "can", "lot people", "men", "meet", "work", "close"))
+corpus <- tm_map(corpus, removeWords, c(stopwords("english"), "mr speaker", "nation", "nations", "fy","congress",  "30th", "1981", "american people", "past", "1982", "vice", "president", "state union", "year", "years", "united states", "my administration", "fellow citizens", "god bless", "must", "can", "lot people", "men", "meet", "work", "close"))
+corpus <- tm_map(corpus, removeWords, c("senate", "house", "representatives", "state", "union", "1st", "american", "annual message"))
+corpus <- tm_map(corpus, removeWords, c("distinguished", "members", "honored", "guests", "mr", "government", "people", "made", "weve"))
 corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
 corpus <- tm_map(corpus, stripWhitespace)
 myCorpusCopy <- corpus
-corpus <- tm_map(corpus, stemDocument)
-corpus <- tm_map(corpus, stemCompletion, dictionary=myCorpusCopy)
+#corpus <- tm_map(corpus, stemDocument)
+#corpus <- tm_map(corpus, stemCompletion, dictionary=myCorpusCopy)
 
 
 
@@ -100,8 +71,8 @@ print("##### we now have a tdm")
 
 #create topic model using VEM, Gibbs sampling, fixed VEM
 print("setting topic # or K, and seed of random gen")
-K <- 5
-SEED <- 167
+K <- 4
+SEED <- 1441
 print("LDA ifying the DTM")
 
 print("performing VEM, Gibbs, VEM_fixed on DTM")
