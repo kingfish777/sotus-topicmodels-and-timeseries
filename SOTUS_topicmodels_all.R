@@ -8,12 +8,12 @@
 #
 # Author: Scott Alexander Malec
 # Email: scott [dot] malec [at] gmail [dot] com
-# Date: 1/23/2014
+# Date: 2/5/2014
 #
 # TITLE: SOTUS_topicmodels_all.R
 #
-# Purpose: R Tools to interface with Python NLTK's implementation of Marti Heart's
-# TextTiling algorithm
+# Purpose: create topicmodel from SOTUS corpus, compare&contrast topicmodels
+#           of different eras/parties/etc.
 #
 #########################################################################
 
