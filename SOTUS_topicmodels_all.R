@@ -18,52 +18,64 @@
 #########################################################################
 
 
+
+
+
 library("tm")
-library("lsa")
-library("topicmodels")
-library("lda")
-#library("gsubfn")
-library("ggplot2")
-library("reshape2")
-library("ape")
-#library("rgl")
 library("rJava")
 library("RWeka")
-library("RWekajars")
-library("Rgraphviz")
-library("MASS")
-library("slam")
-library("igraph")
+library("topicmodels")
+#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/postwar_era")
+#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/neoliberal_era")
+setwd("C:/Users/Scott.Malec/Desktop/SOTUS/neoliberal_era/neo_D")
+#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/sixties/")
+#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/new_deal/")
+#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/jacksonian_democracy/")
+#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/early_republic/")
+#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/progressive_era/")
+#setwd("C:/Users/Scott.Malec/Desktop/SOTUS/reconstruction/")
 
-home = "/home/hinckley"
-homePath = paste(home, "/Public/corpora/SOTUS/", sep="")
-homePath = "/home/hinckley/Public/corpora/SOTUS/"
+setwd("/home/hinckley/Public/corpora/SOTUS/")
+setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/")
+setwd("/home/hinckley/Public/corpora/SOTUS/plutocrats/")
+#setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/neo_D/")
+#setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/neo_R/")
+#setwd("/home/hinckley/Public/corpora/SOTUS/newdeal_postwar/")
+#setwd("/home/hinckley/Public/corpora/SOTUS/newdeal_postwar/")
+#setwd("/home/hinckley/Public/corpora/SOTUS/progressive_newdeal/")
+#setwd("/home/hinckley/Public/corpora/SOTUS/early_republic/")
+#setwd("/home/hinckley/Public/corpora/SOTUS/reconstruction/")
+#setwd("/home/hinckley/Public/corpora/SOTUS/roaring_twenties/")
 
-wd = homePath
-setwd(wd)
+
+
+
+
+#wd = homePath
+#setwd(wd)
 text <- system.file("texts", "txt", package="tm");
 corpus <- Corpus(DirSource('.'))
 corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
-corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
 corpus <- tm_map(corpus, removePunctuation)
-corpus <- tm_map(corpus, removeNumbers)
+#corpus <- tm_map(corpus, removeNumbers)
 corpus <- tm_map(corpus, tolower)
+corpus <- tm_map(corpus, removeWords, c(stopwords("english"), "mr speaker", "fy", "1981", "american people", "past", "1982", "vice", "president", "state union", "year", "years", "united states", "my administration", "fellow citizens", "god bless", "must", "can", "lot people", "men", "meet", "work", "close"))
+corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
 corpus <- tm_map(corpus, stripWhitespace)
-#corpus <- tm_map(corpus, removeWords, stopwords('english'))
 myCorpusCopy <- corpus
 corpus <- tm_map(corpus, stemDocument)
-corpus <- tm_map(corpus, stemCompletion, dictionary=myCorpusCopy)
+#corpus <- tm_map(corpus, stemCompletion, dictionary=myCorpusCopy)
 
 
 
 
-corpus <- tm_map(corpus, stemCompletionion(corpus, dictionary=, type=("prevalent")))
-yourTokenizer <- function(x) RWeka::NGramTokenizer(x, Weka_control(min=2, max=2))
+#corpus <- tm_map(corpus, stemCompletionion(corpus, dictionary=, type=("prevalent")))
+yourTokenizer <- function(x) RWeka::NGramTokenizer(x, Weka_control(min=2, max=3))
 
-dtm <- DocumentTermMatrix(corpus, control=list(weighting = weightTf, tokenize=yourTokenizer, stopwords = TRUE))
+dtm <- DocumentTermMatrix(corpus, control=list(weighting = weightTf, tokenize=yourTokenizer))
 dtm <- removeSparseTerms(dtm, .98)
 #tdm <- TermDocumentMatrix(corpus, control = list(weighting = function(x) weightTfIdf(x, normalize = FALSE), tokenize=yourTokenizer, stopwords = TRUE))
-#tdm <- removeSparseTerms(tdm, .98)
+#tdm <- removeSparseTerms(tdm, .95)
 print("##### we now have a tdm")
 
 #dtm_complete = hclust(dist(dtm), method="complete")
@@ -75,9 +87,9 @@ print("##### we now have a tdm")
 #op = par(bg="#DDE3CA")
 
 #plot(dtm_complete, col="#487AA1", col.main="#45ADA8", col.lab="#7C8071",
-#     col.axis="#F38630", lwd=1, lty=1, sub='', hang=-1, axes=FALSE,
-#     main = "Cluster Dendrogram Representing Author Similarity",
-#     xlab="Author/Publication", ylab = "Stylistic Distance")
+# col.axis="#F38630", lwd=1, lty=1, sub='', hang=-1, axes=FALSE,
+# main = "Cluster Dendrogram Representing Author Similarity",
+# xlab="Author/Publication", ylab = "Stylistic Distance")
 
 #par(op)
 
@@ -86,7 +98,7 @@ print("##### we now have a tdm")
 
 #create topic model using VEM, Gibbs sampling, fixed VEM
 print("setting topic # or K, and seed of random gen")
-K <- 10
+K <- 5
 SEED <- 167
 print("LDA ifying the DTM")
 
@@ -123,3 +135,6 @@ Terms[,1] #view terms to see how "clean" the topics are, adjust K, seed, and oth
 Terms[,2]
 Terms
 gammaDF <- as.data.frame(greenspan_TM$Gibbs@gamma) #key step for gathering topic proportions!
+
+
+plot(gammaDF)
