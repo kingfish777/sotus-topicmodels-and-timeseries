@@ -36,8 +36,10 @@ setwd("C:/Users/Scott.Malec/Desktop/SOTUS/neoliberal_era/neo_D")
 #setwd("C:/Users/Scott.Malec/Desktop/SOTUS/reconstruction/")
 
 setwd("/home/hinckley/Public/corpora/SOTUS/")
-setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/")
+#setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/")
 setwd("/home/hinckley/Public/corpora/SOTUS/plutocrats/")
+
+setwd("/home/hinckley/Public/corpora/SOTUS/better_angels/")
 #setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/neo_D/")
 #setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/neo_R/")
 #setwd("/home/hinckley/Public/corpora/SOTUS/newdeal_postwar/")
@@ -59,21 +61,21 @@ corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
 corpus <- tm_map(corpus, removePunctuation)
 #corpus <- tm_map(corpus, removeNumbers)
 corpus <- tm_map(corpus, tolower)
-corpus <- tm_map(corpus, removeWords, c(stopwords("english"), "mr speaker", "fy", "1981", "american people", "past", "1982", "vice", "president", "state union", "year", "years", "united states", "my administration", "fellow citizens", "god bless", "must", "can", "lot people", "men", "meet", "work", "close"))
+corpus <- tm_map(corpus, removeWords, c(stopwords("english"), "mr speaker", "fy", "30th", "1981", "american people", "past", "1982", "vice", "president", "state union", "year", "years", "united states", "my administration", "fellow citizens", "god bless", "must", "can", "lot people", "men", "meet", "work", "close"))
 corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
 corpus <- tm_map(corpus, stripWhitespace)
 myCorpusCopy <- corpus
 corpus <- tm_map(corpus, stemDocument)
-#corpus <- tm_map(corpus, stemCompletion, dictionary=myCorpusCopy)
+corpus <- tm_map(corpus, stemCompletion, dictionary=myCorpusCopy)
 
 
 
 
 #corpus <- tm_map(corpus, stemCompletionion(corpus, dictionary=, type=("prevalent")))
-yourTokenizer <- function(x) RWeka::NGramTokenizer(x, Weka_control(min=2, max=3))
+yourTokenizer <- function(x) RWeka::NGramTokenizer(x, Weka_control(min=2, max=4))
 
 dtm <- DocumentTermMatrix(corpus, control=list(weighting = weightTf, tokenize=yourTokenizer))
-dtm <- removeSparseTerms(dtm, .98)
+dtm <- removeSparseTerms(dtm, .8)
 #tdm <- TermDocumentMatrix(corpus, control = list(weighting = function(x) weightTfIdf(x, normalize = FALSE), tokenize=yourTokenizer, stopwords = TRUE))
 #tdm <- removeSparseTerms(tdm, .95)
 print("##### we now have a tdm")
