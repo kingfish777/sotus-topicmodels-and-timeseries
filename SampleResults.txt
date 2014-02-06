@@ -1,4 +1,4 @@
-WHITE HATS ===> 
+Jefferson/Lincoln/FDR/JFK:
 
      Topic 1                 Topic 2                 Topic 3                 Topic 4               
  [1,] "purchasing power"      "world war"             "public debt"           "peace friendship"    
@@ -23,7 +23,7 @@ WHITE HATS ===>
 [20,] "current demands"       "peace friendship"      "current demands"       "public interest"    
 
 
-BLACK HATS:
+McKinley/Harding/Coolidge/Reagan/Bush/Bush:
 
 
       Topic 1                    Topic 2             Topic 3                          Topic 4                  
@@ -49,7 +49,7 @@ BLACK HATS:
 [20,] "weapons mass destruction" "national defense"  "purchasing power"               "armed forces"   
 
 
-neoliberal era (Reagan/Bush/Clinton/Bush/Obomber):
+neoliberal era (Carter/Reagan/Bush I/Clinton/Bush II/Obama):
 
       Topic 1             Topic 2                    Topic 3             Topic 4           
  [1,] "economic growth"   "al qaida"                 "health care"       "21st century"    
@@ -73,7 +73,7 @@ neoliberal era (Reagan/Bush/Clinton/Bush/Obomber):
 [19,] "tonight im"        "weapons mass destruction" "tax cut"           "middle class"    
 [20,] "nuclear weapons"   "mass destruction"         "reform bill"       "economic growth"
 
-obama:
+Obama:
 
      Topic 1                 Topic 2                 Topic 3                 Topic 4               
  [1,] "clean energy"          "clean energy"          "health care"           "minimum wage"        
@@ -97,7 +97,7 @@ obama:
 [19,] "high school"           "jobs back"             "americans lost"        "race top"            
 [20,] "middle class"          "tax rates"             "95 percent"            "global economy"      
 
-clinton:
+Clinton:
 
       Topic 1                      Topic 2                Topic 3            Topic 4            
  [1,] "21st century"               "21st century"         "minimum wage"     "health care"      
@@ -121,7 +121,7 @@ clinton:
 [19,] "health insurance"           "finish job"           "right thing"      "care costs"       
 [20,] "school districts"           "science technology"   "first time"       "reform health"   
 
-bush I:
+Bush I:
      Topic 1                Topic 2              Topic 3                  Topic 4                
  [1,] "hard freedom"         "every one"          "health care"            "economic growth"      
  [2,] "next century"         "new world"          "care costs"             "child care"           
