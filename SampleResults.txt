@@ -1,3 +1,6 @@
+
+Below are the results of executing SOTUS_topicmodels_all.R on the SOTUSes of various presidents: 
+
 Jefferson/Lincoln/FDR/JFK:
 
      Topic 1                 Topic 2                 Topic 3                 Topic 4               
