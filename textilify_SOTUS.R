@@ -12,8 +12,9 @@
 #
 # TITLE: rPython_NLTK.R
 #
-# Purpose: R Tools to interface with Python NLTK's implementation of Marti Heart's
-# TextTiling algorithm
+# Purpose: R Tools to interface with Python NLTK's implementation of Marti Hearst's 
+# TextTiling algorithm --- in this case, TextTile SOTUS speeches for more accurate
+# semantic representation of n-grams
 #
 #########################################################################
 
