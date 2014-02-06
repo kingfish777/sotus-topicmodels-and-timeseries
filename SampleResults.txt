@@ -51,7 +51,7 @@ McKinley/Harding/Coolidge/Reagan/Bush/Bush:
 [20,] "weapons mass destruction" "national defense"  "purchasing power"               "armed forces"   
 
 
-neoliberal era (Carter/Reagan/Bush I/Clinton/Bush II/Obama):
+Neoliberal Era (Carter/Reagan/Bush I/Clinton/Bush II/Obama):
 
       Topic 1             Topic 2                    Topic 3             Topic 4           
  [1,] "economic growth"   "al qaida"                 "health care"       "21st century"    
