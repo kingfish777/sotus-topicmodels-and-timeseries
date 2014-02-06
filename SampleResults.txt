@@ -1,4 +1,5 @@
-Below are the results of executing SOTUS_topicmodels_all.R on the SOTUSes of various presidents (2/3-gram): 
+Below are the results of executing SOTUS_topicmodels_all.R on the SOTUSes of various presidents 
+ (using min=2/max=4-gram tokens and ~.95 matrix sparsity): 
 
 Jefferson/Lincoln/FDR/JFK:
 
