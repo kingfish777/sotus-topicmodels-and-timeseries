@@ -15,7 +15,7 @@ TO DO:
   * create SOTUS_topicmodels_decade.R    create topic models of speeches by decade
   * create SOTUS_topicmodels_era.R       create topic models of speeches by era: early Republic, Jacksonian,     reconstruction, guilded, progressive, roaring teens and twenties, depression, post-war prosperity, (current) neoliberal eras
   * improve scraper to be able to filter and capture more metadata (author/date/party affiliation, etc.)
-  * create annotated d3.js graphs for display purposes
+  * create annotated d3.js graphs for interactive display and exploration purposes
 
 	                               
 	                               
