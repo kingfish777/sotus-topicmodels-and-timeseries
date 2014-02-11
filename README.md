@@ -16,6 +16,7 @@ TO DO:
   * create SOTUS_topicmodels_era.R       create topic models of speeches by era: early Republic, Jacksonian,     reconstruction, guilded, progressive, roaring teens and twenties, depression, post-war prosperity, (current) neoliberal eras
   * improve scraper to be able to filter and capture more metadata (author/date/party affiliation, etc.)
   * create annotated d3.js graphs for interactive display and exploration purposes
+  * use TextTilify_NLTK.R to segment SOTUSes into coherent chunks to improve vector space model for IR/text mining purposes
 
 	                               
 	                               
