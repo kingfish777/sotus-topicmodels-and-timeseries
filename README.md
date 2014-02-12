@@ -17,6 +17,7 @@ TO DO:
   * improve scraper to be able to filter and capture more metadata (author/date/party affiliation, etc.)
   * create annotated d3.js graphs for interactive display and exploration purposes
   * use TextTilify_NLTK.R to segment SOTUSes into coherent chunks to improve vector space model for IR/text mining purposes
+  * create comprehensive project bibliography
 
 	                               
 	                               
