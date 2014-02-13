@@ -60,6 +60,7 @@ setwd("/home/hinckley/Public/corpora/SOTUS/F_JQA/")
 text <- system.file("texts", "txt", package="tm");
 corpus <- Corpus(DirSource('.'))
 corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
+#Apply Text Mining Clean-up Functions
 corpus <- tm_map(corpus, removePunctuation)
 corpus <- tm_map(corpus, removeNumbers)
 corpus <- tm_map(corpus, tolower)
@@ -71,7 +72,8 @@ corpus <- tm_map(corpus, removeWords, c(stopwords("english"), "say", "democrats"
 corpus <- tm_map(corpus, stripWhitespace)
 pre_dtm <- DocumentTermMatrix(corpus)
 myDictionary <- list(pre_dtm$dimnames)
-#corpus <- tm_map(corpus, stemDocument)
+#corpus <- tm_map(corpus, removeWords, stopwords("english"))
+#corpus <- tm_map(corpus, stemDocument, language= "english")
 #corpus <- tm_map(corpus, stemCompletion(dictionary=myDictionary))
 #corpus <- tm_map(corpus, stemCompletionion(corpus, dictionary=, type=("prevalent")))
 yourTokenizer <- function(x) RWeka::NGramTokenizer(x, Weka_control(min=2, max=4))
