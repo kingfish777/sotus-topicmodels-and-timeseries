@@ -18,6 +18,7 @@ TO DO:
   * create annotated d3.js graphs for interactive display and exploration purposes
   * use TextTilify_NLTK.R to segment SOTUSes into coherent chunks to improve vector space model for IR/text mining purposes
   * create comprehensive project bibliography
+  * implement n-gram tokenization using RTextTools instead of tm, as it doesn't require RWeka's rJava dependency with its memory limits
 
 	                               
 	                               
