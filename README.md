@@ -19,7 +19,7 @@ TO DO:
   * use TextTilify_NLTK.R to segment SOTUSes into coherent chunks to improve vector space model for IR/text mining purposes
   * create comprehensive project bibliography
   * implement n-gram tokenization using RTextTools instead of tm, as it doesn't require RWeka's rJava dependency with its memory limits
-  * also use unique function in RTextTools package to obtain k for topic model #
+  * also use unique function in RTextTools package to obtain k for topic model #: http://www.rtexttools.com/1/post/2011/08/getting-started-with-latent-dirichlet-allocation-using-rtexttools-topicmodels.html
 
 	                               
 	                               
