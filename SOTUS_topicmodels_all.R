@@ -20,6 +20,7 @@
 library("tm")
 library("rJava")
 library("RWeka")
+library("RTextTools")
 library("topicmodels")
 #setwd("C:/Users/Scott.Malec/Desktop/SOTUS/postwar_era")
 #setwd("C:/Users/Scott.Malec/Desktop/SOTUS/neoliberal_era")
@@ -76,8 +77,15 @@ myDictionary <- list(pre_dtm$dimnames)
 #corpus <- tm_map(corpus, stemDocument, language= "english")
 #corpus <- tm_map(corpus, stemCompletion(dictionary=myDictionary))
 #corpus <- tm_map(corpus, stemCompletionion(corpus, dictionary=, type=("prevalent")))
-yourTokenizer <- function(x) RWeka::NGramTokenizer(x, Weka_control(min=2, max=4))
-dtm <- DocumentTermMatrix(corpus, control=list(weighting = weightTf, tokenize=yourTokenizer))
+#yourTokenizer <- function(x) RWeka::NGramTokenizer(x, Weka_control(min=2, max=4))
+#dtm <- DocumentTermMatrix(corpus, control=list(weighting = weightTf, tokenize=yourTokenizer))
+dtm <- create_matrix(cbind(as.vector(corpus)), language="english", minDocFreq=1, maxDocFreq=Inf, 
+              minWordLength=3, maxWordLength=Inf, ngramLength=3, originalMatrix=NULL, 
+              removeNumbers=TRUE, removePunctuation=TRUE, removeSparseTerms=0, 
+              removeStopwords=TRUE,  stemWords=FALSE, stripWhitespace=TRUE, toLower=TRUE, 
+              weighting=weightTf)
+rowTotals <- apply(dtm , 1, sum) #Find the sum of words in each Document
+dtm   <- dtm[rowTotals> 0]           #remove all docs without words
 dtm <- removeSparseTerms(dtm, .95)
 #tdm <- TermDocumentMatrix(corpus, control = list(weighting = function(x) weightTfIdf(x, normalize = FALSE), tokenize=yourTokenizer, stopwords = TRUE))
 #tdm <- removeSparseTerms(tdm, .95)
