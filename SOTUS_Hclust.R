@@ -2,7 +2,7 @@ library(tm)
 library(ape)
 library(RTextTools)
 home <- "/home/hinckley"
-homePath = paste(home, "/Public/corpora/POTUS", sep="")
+homePath = paste(home, "/Public/corpora/SOTUS", sep="")
 setwd(paste(homePath, sep=""))
 text <- system.file("texts", "txt", package="tm");
 corpus <- Corpus(DirSource())
