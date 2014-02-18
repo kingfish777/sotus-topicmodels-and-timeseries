@@ -1,17 +1,16 @@
 #############
 library(tm)
 library(ape)
-library(RTextTools)
+library(RWeka)
 home <- "/home/hinckley"
 homePath = paste(home, "/Public/corpora/SOTUS", sep="")
-
 #setwd("C:/Users/Scott.Malec/Desktop/SOTUS/sixties/")
 #setwd("C:/Users/Scott.Malec/Desktop/SOTUS/new_deal/")
 #setwd("C:/Users/Scott.Malec/Desktop/SOTUS/jacksonian_democracy/")
 #setwd("C:/Users/Scott.Malec/Desktop/SOTUS/early_republic/")
 #setwd("C:/Users/Scott.Malec/Desktop/SOTUS/progressive_era/")
 #setwd("C:/Users/Scott.Malec/Desktop/SOTUS/reconstruction/")
-setwd("/home/hinckley/Public/corpora/SOTUS/")
+#setwd("/home/hinckley/Public/corpora/SOTUS/")
 setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/")
 #setwd("/home/hinckley/Public/corpora/SOTUS/plutocrats/")
 #setwd("/home/hinckley/Public/corpora/SOTUS/D_BHO/")
@@ -29,12 +28,12 @@ setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/")
 #setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/neo_R/")
 #setwd("/home/hinckley/Public/corpora/SOTUS/newdeal_postwar/")
 #setwd("/home/hinckley/Public/corpora/SOTUS/newdeal_postwar/")
-setwd("/home/hinckley/Public/corpora/SOTUS/progressive_newdeal/")
+#setwd("/home/hinckley/Public/corpora/SOTUS/progressive_newdeal/")
 #setwd("/home/hinckley/Public/corpora/SOTUS/early_republic/")
 #setwd("/home/hinckley/Public/corpora/SOTUS/reconstruction/")
 #setwd("/home/hinckley/Public/corpora/SOTUS/roaring_twenties/")
-#setwd("/home/hinckley/Public/corpora/SOTUS/plutocrats/")
-#setwd(paste(homePath, sep=""))
+##setwd("/home/hinckley/Public/corpora/SOTUS/plutocrats/")
+setwd(paste(homePath, sep=""))
 text <- system.file("texts", "txt", package="tm");
 corpus <- Corpus(DirSource())
 corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
@@ -44,16 +43,11 @@ corpus <- tm_map(corpus, removeNumbers)
 corpus <- tm_map(corpus, tolower)
 corpus <- tm_map(corpus, stripWhitespace)
 corpus <- tm_map(corpus, stemDocument, language = "english")
-#ngrams <- RWeka::NGramTokenizer(corpus, Weka_control(min=1, max=4))
-#dtm <- DocumentTermMatrix(corpus, control = list(ngrams, wordLengths=c(3, 25), weighting = weightTfIdf, stopwords=TRUE))
-dtm <- create_matrix(cbind(as.vector(corpus)), language="english", minDocFreq=1, maxDocFreq=Inf,
-                     minWordLength=3, maxWordLength=Inf, ngramLength=2, originalMatrix=NULL,
-                     removeNumbers=FALSE, removePunctuation=TRUE, removeSparseTerms=0,
-                     removeStopwords=TRUE, stemWords=FALSE, stripWhitespace=TRUE, toLower=TRUE,
-                     weighting=weightTf)
+ngrams <- RWeka::NGramTokenizer(corpus, Weka_control(min=1, max=4))
+dtm <- DocumentTermMatrix(corpus, control = list(ngrams, wordLengths=c(3, 25), weighting = weightTfIdf, stopwords=TRUE))
 rowTotals <- apply(dtm, 1, sum) #Find the sum of words in each Document
 dtm <- dtm[rowTotals> 0 || rowTotals==NA] #remove all docs without words
-dtm <- removeSparseTerms(dtm, .5)
+dtm <- removeSparseTerms(dtm, .95)
 dtm_complete = hclust(dist(dtm), method="complete")
 plot(hclust(dist(dtm), method="complete"), xlab="text from corpus", "ylab"="distance", main="Cluster Dendrogram of Various Texts")
 op = par(bg="#DDE3CA")
