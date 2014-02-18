@@ -34,6 +34,8 @@ setwd("/home/hinckley/Public/corpora/SOTUS/neoliberal_era/")
 #setwd("/home/hinckley/Public/corpora/SOTUS/roaring_twenties/")
 ##setwd("/home/hinckley/Public/corpora/SOTUS/plutocrats/")
 setwd(paste(homePath, sep=""))
+setwd("/home/hinckley/Public/corpora/SOTUS/Democrats/")
+setwd("/home/hinckley/Public/corpora/SOTUS/Republicans/")
 text <- system.file("texts", "txt", package="tm");
 corpus <- Corpus(DirSource())
 corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
@@ -55,9 +57,9 @@ plot(dtm_complete, col="#487AA1", col.main="#45ADA8", col.lab="#7C8071",
      col.axis="#F38630", lwd=1, lty=1, sub='', hang=-1, axes=FALSE,
      main = "Cluster Dendrogram Representing Author Similarity",
      xlab="Author/Publication", ylab = "Stylistic Distance")
-par(op)
-plot(dtm_complete, hang=1, axes = TRUE, ann=TRUE, main = "Cluster Dendrogram Representing Author Similarity",
-      xlab="Author/Publication", ylab = "Distance")
-phyl <- as.phylo(dtm_complete)
-plot(phyl, edge.col=c("blue", "green", "red")[c(TRUE, FALSE) + 1 + (phyl$edge.length > 20)])
+#par(op)
+#plot(dtm_complete, hang=1, axes = TRUE, ann=TRUE, main = "Cluster Dendrogram Representing Author Similarity",
+#      xlab="Author/Publication", ylab = "Distance")
+#phyl <- as.phylo(dtm_complete)
+#plot(phyl, edge.col=c("blue", "green", "red")[c(TRUE, FALSE) + 1 + (phyl$edge.length > 20)])
 ############
