@@ -18,13 +18,15 @@ TO DO:
   * create annotated d3.js graphs for interactive display and exploration purposes
   * use TextTilify_NLTK.R to segment SOTUSes into coherent chunks to improve vector space model for IR/text mining purposes
   * create comprehensive project bibliography
-  * implement n-gram tokenization using RTextTools instead of tm, as it doesn't require RWeka's rJava dependency with its memory limits
   * also use unique function in RTextTools package to obtain k for topic model #: http://www.rtexttools.com/1/post/2011/08/getting-started-with-latent-dirichlet-allocation-using-rtexttools-topicmodels.html
  
 
 _________________________________________________________________________________
 
 remove empty doc from dtm: http://stackoverflow.com/questions/13944252/remove-empty-documents-from-documenttermmatrix-in-r-topicmodels 
+
+COMPLETE:
+  * implement n-gram tokenization using RTextTools instead of tm, as it doesn't require RWeka's rJava dependency with its memory limits
 
 	                               
 	                               
