@@ -9,6 +9,7 @@ PURPOSE: investigate topic models in context of a collection of State of the Uni
   * KNN_SOTUS.R 	                investigate which texts most closely resemble other texts using K-Nearest Neighbor
   * SOTUS_Hclust.R                performs hierarchical clustering of SOTUS addresses (similarity metric)
   * SOTUS_topicmodels_all.R 	    creates topic models of all speeches
+  * stylo.R                         uses new stylo package in CRAN (new as of 2/26/2014)
 	
 TO DO:
   * create SOTUS_topicmodels_RvsD.R      create topic models of speeches by party
