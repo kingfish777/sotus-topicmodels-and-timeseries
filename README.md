@@ -1,7 +1,7 @@
 sotus-topicmodels-and-timeseries
 ================================
 
-topicmodel sand timeseries of SOTUSes
+topicmodels and timeseries of SOTUS addresses
 PURPOSE: investigate topic models in context of a collection of State of the Union speeches (SOTUS) by way of tracking the evolution of the United States from an agrarian colonial backwater through various stages of plutocratic Republic to Empire and on, finally, to declining financialized post-industrial police state and global hegemon of today.
 
 
@@ -15,7 +15,7 @@ TO DO:
   * create SOTUS_topicmodels_decade.R    create topic models of speeches by decade
   * create SOTUS_topicmodels_era.R       create topic models of speeches by era: early Republic, Jacksonian,     reconstruction, guilded, progressive, roaring teens and twenties, depression, post-war prosperity, (current) neoliberal eras
   * improve scraper to be able to filter and capture more metadata (author/date/party affiliation, etc.)
-  * create annotated d3.js graphs for interactive display and exploration purposes
+  * create annotated d3.js graphs for interactive data visusualization and exploration purposes
   * use TextTilify_NLTK.R to segment SOTUSes into coherent chunks to improve vector space model for IR/text mining purposes
   * create comprehensive project bibliography
   * also use unique function in RTextTools package to obtain k for topic model #: http://www.rtexttools.com/1/post/2011/08/getting-started-with-latent-dirichlet-allocation-using-rtexttools-topicmodels.html
